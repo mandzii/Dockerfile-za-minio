@@ -1,0 +1,8 @@
+FROM ubuntu:21.04
+EXPOSE 9001
+ENTRYPOINT ["minio/minio"]
+RUN apt-get update && apt-get install -y wget
+RUN cd /tmp
+RUN wget https://dl.min.io/server/minio/release/linux-amd64/minio 
+RUN chmod +x minio 
+RUN MINIO_ROOT_USER=admin MINIO_ROOT_PASSWORD=password ./minio server /mnt/data --console-address ":9001"
