@@ -11,3 +11,6 @@ ENV MINIO_ROOT_PASSWORD password
 RUN pwd && ls -la /root
 VOLUME [ "/mnt/data" ]
 ENTRYPOINT ["/root/minio", "server", "/mnt/data","--console-address", ":9001"]
+
+
+docker run -v /home/marijan/test:/mnt/data IDcontejnera koji smo bildovali tamo gde je dokerfajl
